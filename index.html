@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>PMLending - Lending System version 0.1.3a</title>
+        <title>PMLending - Lending System version 0.1.4a</title>
         <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     </head>
 
@@ -110,10 +110,10 @@
                 
                 let ti = parseFloat(gtd) - parseFloat(principal);
 
-                $('#mi').val(mitxt + " " + Number(mi));
-                $('#ma').val(Number(ma));
-                $('#gtd').val(Number(gtd));
-                $('#ti').val(Number(ti));
+                $('#mi').val(mitxt + " - Php " + Number(mi) + ".00");
+                $('#ma').val(Number(ma) + ".00");
+                $('#gtd').val(Number(gtd) + ".00");
+                $('#ti').val(Number(ti) + ".00");
                 $('#time').html("Generated: " + new Date());
             });
 
