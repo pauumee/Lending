@@ -37,10 +37,10 @@
                 <label for="Tenure" class="control-label">Tenure</label>
                 <select name="Tenure" id="Tenure" class="form-control col-md-3">
                     <option value="0">Tenure</option>
-                    <option value="0.05">1 Month (Special Rate)</option>
-                    <option value="0.1">1 Month</option>
-                    <option value="0.08">2 Months</option>
-                    <option value="0.06">3 Months</option>
+                    <option value="1ms">1 Month (Special Rate)</option>
+                    <option value="1m">1 Month</option>
+                    <option value="2m">2 Months</option>
+                    <option value="3m">3 Months</option>
                 </select>
                 <button id="compute" class="btn-info form-control col-md-3" style="margin-top: -38px; margin-left: 150px;">Compute</button>
                 <hr>
@@ -75,25 +75,29 @@
                 let interest = $('#Tenure').val();
                 let principal = $('#Principal').val();
 
-                let mi = principal * interest;
+                let mi = 0;
                 let ma = 0;
                 let gtd = 0;
 
                 switch (interest)
                 {
-                    case '0.05': // 1 mo special
+                    case '1ms': // 1 mo special
+                        mi = parseFloat(principal) * 0.05;
                         ma = parseFloat(principal) + parseFloat(mi);
                         gtd = parseFloat(ma);
                     break;
-                    case '0.06': // 3 mo
+                    case '3m': // 3 mo
+                        mi = parseFloat(principal) * 0.05;
                         ma = (parseFloat(principal) / 3) + parseFloat(mi);
                         gtd = parseFloat(ma) * 3;
                     break;
-                    case '0.08': // 2 mo
+                    case '2m': // 2 mo
+                        mi = parseFloat(principal) * 0.07;
                         ma = (parseFloat(principal) / 2) + parseFloat(mi);
                         gtd = parseFloat(ma) * 2;
                     break;
                     default: // 1 mo
+                        mi = parseFloat(principal) * 0.1;
                         ma = parseFloat(principal) + parseFloat(mi);
                         gtd = parseFloat(ma);
                     break;
